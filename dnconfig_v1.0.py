@@ -122,7 +122,7 @@ class ConfigApp:
         event.widget.config(bg="lightgray")
         
     def mostrar_contenido_seccion(self, seccion):
-        # Eliminar contenido previo del frame
+        # limpia frame
         for widget in self.frame_contenido.winfo_children():
             widget.destroy()
 
@@ -142,7 +142,7 @@ class ConfigApp:
             self.mostrar_deployar_wim()
         elif seccion == "Hacer SysPrep":
             self.mostrar_hacer_sysprep()
-        # Agrega más casos para otras secciones aquí
+        # agregar secciones aqui arriba, recordar reemplazar por diccionario para no tener tantos elif
 
     def mostrar_configuracion_so(self):
         label = tk.Label(self.frame_contenido, text="Contenido de la sección 'Configuracion de S.O'")
@@ -176,12 +176,12 @@ class ConfigApp:
         label = tk.Label(self.frame_contenido, text="Contenido de la sección 'Hacer SysPrep'")
         label.pack()
 
-    # Agrega funciones para otras secciones aquí
+    # agregar mas funciones aqui arriba jeje
 
     def guardar_reporte(self, tipo_reporte):
         ruta_archivo = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Archivos de texto", "*.txt")])
         if ruta_archivo:
-            contenido = ""  # Aquí puedes obtener el contenido específico de la sección actual
+            contenido = ""  # solo a modo de esqueleto de seccion.
             with open(ruta_archivo, "w") as archivo:
                 archivo.write(contenido)
 
@@ -190,15 +190,15 @@ class ConfigApp:
         if contraseña == "TechSoft2023":
             self.mostrar_contenido_seccion(accion)
             # Agrega aquí el código de la función protegida si es necesario
-        elif contraseña is not None:  # Se ha ingresado una contraseña inválida
+        elif contraseña is not None:  # Caso negativo, contraseña invalida
             messagebox.showerror("Error", "Contraseña incorrecta")
             self.mostrar_seccion(self.barra_estado.cget("text"))  # Restaurar la sección actual
 
     def mostrar_ayuda(self):
-        pass  # Agrega aquí el código para mostrar la ayuda
+        pass  # agregar ventana emergente con ayuda respecto a la aplicación
 
     def mostrar_acerca_de(self):
-        pass  # Agrega aquí el código para mostrar la información "Acerca de"
+        pass  # agregar ventana de acerca de con creditos y demas
 
 def main():
     root = tk.Tk()
