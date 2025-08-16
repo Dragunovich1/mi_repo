@@ -42,7 +42,7 @@ class ConfigApp:
         y_pos = (alto_pantalla - alto_ventana) // 2
         self.root.geometry(f"{ancho_ventana}x{alto_ventana}+{x_pos}+{y_pos}")
         # Establece el icono de la ventana.
-        icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dn.ico")
+        icono = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "dn.ico")
         self.root.iconbitmap(icono)
         # Crea la interfaz de usuario de la ventana.
         self.crear_interfaz()
